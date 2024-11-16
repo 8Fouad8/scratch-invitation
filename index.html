@@ -81,7 +81,7 @@
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
 
-      // Draw transparent circles to "scratch off"
+      // Draw transparent circles to "scratch off" the gray overlay
       ctx.globalCompositeOperation = 'destination-out';
       ctx.beginPath();
       ctx.arc(x, y, 20, 0, Math.PI * 2, false);

@@ -31,6 +31,7 @@
       top: 0;
       left: 0;
       z-index: 1; /* Ensure the image stays below the scratch layer */
+      visibility: hidden; /* Keep the image hidden initially */
     }
 
     canvas {
@@ -54,12 +55,13 @@
     const canvas = document.getElementById('scratchCanvas');
     const ctx = canvas.getContext('2d');
     const container = document.querySelector('.scratch-card-container');
+    const hiddenImage = document.querySelector('.hidden-image');
 
     // Adjust canvas size to container
     canvas.width = container.offsetWidth;
     canvas.height = container.offsetHeight;
 
-    // Fill the canvas with a gray overlay
+    // Draw initial gray overlay on the canvas
     ctx.fillStyle = '#cccccc';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -87,6 +89,12 @@
       ctx.arc(x, y, 20, 0, Math.PI * 2, false);
       ctx.fill();
     });
+
+    // Reveal the image once the scratch layer is interacted with
+    canvas.addEventListener('mousemove', () => {
+      hiddenImage.style.visibility = 'visible';
+    });
+
   </script>
 </body>
 </html>

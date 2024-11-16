@@ -3,17 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scratch and Win Invitation</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Scratch and Win</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .scratch-card-container {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: 50px auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: crosshair;
+    }
+
+    .hidden-image {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <div class="scratch-container">
-    <canvas id="scratchCanvas" width="300" height="200"></canvas>
-    <div id="invitation" class="hidden">
-      🎉 You’re Invited! 🎉 <br>
-      Click <a href="https://example.com/invitation">here</a> to view your invitation.
-    </div>
+  <h1>Scratch and Win Invitation</h1>
+  <div class="scratch-card-container">
+    <img src="https://drive.google.com/uc?id=1B-EgqcpCrLZBtqvLcZp2rHl0USF5K1qI" alt="Hidden Invitation" class="hidden-image">
+    <canvas id="scratchCanvas"></canvas>
   </div>
-  <script src="script.js"></script>
+  <script>
+    const canvas = document.getElementById('scratchCanvas');
+    const ctx = canvas.getContext('2d');
+    const container = document.querySelector('.scratch-card-container');
+
+    // Adjust canvas size to container
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+
+    // Fill the canvas with a gray overlay
+    ctx.fillStyle = '#cccccc';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Event listeners for scratch effect
+    let isDrawing = false;
+
+    canvas.addEventListener('mousedown', () => {
+      isDrawing = true;
+    });
+
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      ctx.beginPath();
+    });
+
+    canvas.addEventListener('mousemove', (event) => {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      // Draw transparent circles to "scratch off"
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 20, 0, Math.PI * 2, false);
+      ctx.fill();
+    });
+  </script>
 </body>
 </html>

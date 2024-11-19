@@ -8,10 +8,25 @@
 </head>
 <body>
   <h1>Scratch and Win Invitation</h1>
+  <div id="welcomeMessage"></div>
   <div class="scratch-container">
-    <div id="invitation" class="hidden">🎉 You're Invited! 🎉</div>
+    <div id="invitation" class="hidden">
+      <br>
+      <img src="Kero & Paty.jpg" alt="Invitation Image" id="invitationImage">
+    </div>
     <canvas id="scratchCanvas"></canvas>
   </div>
+  <script>
+    // Load the name from local storage and display it
+    const userName = localStorage.getItem('userName');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+
+    if (userName) {
+      welcomeMessage.textContent = `Welcome, ${userName}!`;
+    } else {
+      welcomeMessage.textContent = 'Welcome, Guest!';
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

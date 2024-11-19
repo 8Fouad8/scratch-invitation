@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -39,5 +38,11 @@ body {
   
   .hidden {
     visibility: hidden;
+  }
+  
+  #invitation img {
+    margin-top: 10px;
+    max-width: 90%;
+    border-radius: 10px;
   }
   

@@ -8,12 +8,16 @@ body {
   
   .scratch-container {
     position: relative;
-    width: 300px;
-    height: 200px;
+    width: 177px;
+    height: 260px;
     margin: 50px auto;
     border: 2px solid #ccc;
-    background-color: white;
+    background-image: url('Kero & Paty.jpg'); /* Replace with your image file name */
+    background-size: cover; /* Ensures the image covers the container */
+    background-position: center; /* Centers the image */
+    border-radius: 6%;
   }
+  
   
   canvas {
     position: absolute;
@@ -34,6 +38,11 @@ body {
     font-size: 18px;
     color: #333;
     z-index: 1;
+    border-radius: 6%;
+    background-color: #cccccc;
+
+
+
   }
   
   .hidden {
@@ -42,7 +51,7 @@ body {
   
   #invitation img {
     margin-top: 10px;
-    max-width: 90%;
+    max-width: 100%;
     border-radius: 10px;
   }
   

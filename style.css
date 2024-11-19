@@ -8,10 +8,10 @@ body {
   
   .scratch-container {
     position: relative;
-    width: 177px;
-    height: 260px;
+    width: 280px;
+    height: 392px;
     margin: 50px auto;
-    border: 2px solid #ccc;
+    border: 3px solid #ccc;
     background-image: url('Kero & Paty.jpg'); /* Replace with your image file name */
     background-size: cover; /* Ensures the image covers the container */
     background-position: center; /* Centers the image */
@@ -50,8 +50,7 @@ body {
   }
   
   #invitation img {
-    margin-top: 10px;
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 6%;
   }
   

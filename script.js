@@ -51,5 +51,5 @@ function isRevealed() {
   }
 
   const transparencyPercentage = (transparentPixels / (pixels.length / 4)) * 100;
-  return transparencyPercentage > 90; // Reveal if 50% scratched
+  return transparencyPercentage > 75; // Reveal if 50% scratched
 }

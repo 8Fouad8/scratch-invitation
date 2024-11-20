@@ -1,5 +1,11 @@
+
+@font-face {
+  font-family: 'Marhey';
+  src: url('./fonts/Marhey-Medium.ttf') format('truetype');
+}
+
 body {
-  font-family: 'Slopes', sans-serif; /* Fallback to sans-serif if "Slopes" doesn't load */
+  font-family: 'Marhey', sans-serif; /* Fallback to sans-serif if "Marhey" doesn't load */
   text-align: center;
   background-color: #f4f4f4;
   margin: 0;
